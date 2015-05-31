@@ -1,0 +1,2 @@
+# sum-pairs
+Code kata
