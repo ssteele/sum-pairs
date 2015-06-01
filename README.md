@@ -45,15 +45,17 @@ The functionality that solves the problem posed basically boils down to the foll
 - is equal conditional: `O(1)`
 - append to $pairs array: `O(1)`
 
-    = O(1) + O(1) + O(1) + O(n){ O(.5n)[ O(1) + O(1) ] }
-    = O(3) + O(n^2)
-    = O(n^2)
+Written out and simplifying yields:
+
+    O(1) + O(1) + O(1) + O(n){ O(.5n)[ O(1) + O(1) ] }
+    O(3) + O(n^2)
+    O(n^2)
 
 A more efficient approach for a large dataset might be, for a single outer iteration:
 
-1) split the inner range in half [1sthalf, 2ndhalf]
-2) take the first value of the 2ndhalf
-3) add this value to the outer index
-4) compare this calculation ($calc) to the input $sum
-5) if $calc < $sum, split 2ndhalf into new [1sthalf, 2ndhalf]; else split 1sthalf into new [1sthalf, 2ndhalf]
-6) repeat steps 2-5 until the proper inner value is found
+1. split the inner range in half [1sthalf, 2ndhalf]
+2. take the first value of the 2ndhalf
+3. add this value to the outer index
+4. compare this calculation ($calc) to the input $sum
+5. if $calc < $sum, split 2ndhalf into new [1sthalf, 2ndhalf]; else split 1sthalf into new [1sthalf, 2ndhalf]
+6. repeat steps 2-5 until the proper inner value is found
