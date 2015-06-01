@@ -9,12 +9,12 @@ class Validate {
 
     /**
      * Validate number
-     * @param  mixed   $number    Number?
+     * @param  mixed   $integer   Integer?
      * @return boolean            True if number; False otherwise
      */
-    public function is_number( $number ) {
+    public function is_integer( $integer ) {
 
-        if ( ! is_numeric( $number ) ) {
+        if ( ! is_int( $integer ) ) {
 
             $this->status = false;
             return false;

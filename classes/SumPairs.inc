@@ -32,9 +32,9 @@ class SumPairs {
      */
     private function _set_sum( $sum ) {
 
-        if ( ! $this->_validate->is_number( $sum ) ) {
+        if ( ! $this->_validate->is_integer( $sum ) ) {
 
-            throw new Exception( '$sum should be a number' );
+            throw new Exception( '$sum should be an integer' );
             return false;
 
         }
@@ -76,9 +76,14 @@ class SumPairs {
      */
     private function _set_range( $range ) {
 
-        if ( ! $this->_validate->is_array( $range ) || 2 !== count( $range ) ) {
+        if (
+            ! $this->_validate->is_array( $range ) ||
+            ! $this->_validate->is_integer( $range[0] ) ||
+            ! $this->_validate->is_integer( $range[1] ) ||
+            2 !== count( $range )
+         ) {
 
-            throw new Exception( '$range should be an array with 2 elements [min, max]' );
+            throw new Exception( '$range should be an array with 2 integer elements [min, max]' );
             return false;
 
         }

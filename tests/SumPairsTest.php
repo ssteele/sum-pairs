@@ -40,6 +40,12 @@ class SumPairsTest extends \PHPUnit_Framework_TestCase {
         $sum_pairs->set_sum();
         $this->assertEquals( [], $sum_pairs->calculate() );
 
+        $sum_pairs->set_sum( 1.1 );
+        $this->assertEquals( [], $sum_pairs->calculate() );
+
+        $sum_pairs->set_sum( '1' );
+        $this->assertEquals( [], $sum_pairs->calculate() );
+
         $sum_pairs->set_sum( 'NaN' );
         $this->assertEquals( [], $sum_pairs->calculate() );
 
@@ -85,6 +91,9 @@ class SumPairsTest extends \PHPUnit_Framework_TestCase {
         $this->assertEquals( [], $sum_pairs->calculate() );
 
         $sum_pairs->set_range( [-50, 0, 50] );
+        $this->assertEquals( [], $sum_pairs->calculate() );
+
+        $sum_pairs->set_range( [-50.5, 50.5] );
         $this->assertEquals( [], $sum_pairs->calculate() );
 
     }
